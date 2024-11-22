@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link rel="icon" href="/static/resources/images/elementos_graficos/sirkass.png" type="image/png">
+  <link rel="stylesheet" href="/static/css/dog.css">
+    <link rel="stylesheet" href="/static/css/responsivo.css">
+</head>
+<body>
+     <div class="ngc"></div>
+    <nav>
+      <button onclick="window.location.href='/menu'">Início</button>
+
+    </nav>
+
+    <div id="gameArea">
+      <div id="character"></div>
+      <div id="obstacleSmall"></div>
+    </div>
+
+    <div id="score">Score: 0</div>
+
+
+
+
+<!-- Game Over Modal -->
+    <div class="modal">
+      <div class="modal-content">
+        <h2>Game Over!</h2>
+        <p>Sua pontuação: <span id="finalScore"></span></p>
+        <button id="restartGameButton" onclick="restartGame()">Reiniciar</button>
+      </div>
+    </div>
+    <div class="container-alerta">
+    <div class="container-alerta-content">
+        <img src="../static/resources/images/ziggy/cutie.png" alt="App logo">
+        <div>
+            <h1>Atenção</h1>
+            <p>Nosso site não possui suporte para mobile, por favor use a versão <span><a>Mobile</a></span></p>
+        </div>
+    </div>
+</div>
+       <audio id="meuAudio" loop>
+      <source src="../../../static/resources/Audios/mus_papyrusboss.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+    </audio>
+
+<script>
+    const audio = document.getElementById('meuAudio');
+
+    // Tenta iniciar o áudio automaticamente
+    window.addEventListener('load', () => {
+        audio.play().catch(() => {
+            // Caso o autoplay seja bloqueado, exibe um aviso ou inicia após clique
+            console.log("Autoplay bloqueado; áudio será iniciado após interação.");
+        });
+    });
+
+    // Alternativa: inicia após um clique se o autoplay for bloqueado
+    document.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+        }
+    });
+</script>
+<script src="../../../static/js/dog.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="../../../static/css/ping.css">
+    <link rel="stylesheet" href="/static/css/responsivo.css">
+    <link rel="icon" href="../../../static/resources/images/elementos_graficos/sirkass.png" type="image/png">
+
+</head>
+<body>
+    <!-- Barra de Navegação -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="/menu">Menu</a></li>
+            <li><a href="#" id="howToPlayBtn">Como Jogar</a></li>
+        </ul>
+    </nav>
+
+    <h1>Pong Master!</h1>
+
+    <button id="restartButton">Reiniciar Jogo</button>
+
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <!-- Modal de Como Jogar -->
+    <div id="howToPlayModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Como Jogar</h2>
+            <p>Use as teclas <strong>W</strong> e <strong>S</strong> O objetivo do jogo de pingue-pongue virtual é marcar mais pontos que o adversário. Para começar, clique no botão de saque, e a bola será lançada automaticamente. Use as setas do teclado (ou as teclas designadas) para mover sua raquete e acertar a bola. Você marcará um ponto sempre que o oponente não conseguir devolver a bola.</p>
+        </div>
+    </div>
+<div class="container-alerta">
+    <div class="container-alerta-content">
+        <img src="../static/resources/images/ziggy/cutie.png" alt="App logo">
+        <div>
+            <h1>Atenção</h1>
+            <p>Nosso site não possui suporte para mobile, por favor use a versão <span><a>Mobile</a></span>!</p>
+        </div>
+    </div>
+</div>
+            <audio id="meuAudio" loop>
+  <source src="../../../static/resources/Audios/pong.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<script>
+    const audio = document.getElementById('meuAudio');
+
+    // Tenta iniciar o áudio automaticamente
+    window.addEventListener('load', () => {
+        audio.play().catch(() => {
+            // Caso o autoplay seja bloqueado, exibe um aviso ou inicia após clique
+            console.log("Autoplay bloqueado; áudio será iniciado após interação.");
+        });
+    });
+
+    // Alternativa: inicia após um clique se o autoplay for bloqueado
+    document.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+        }
+    });
+</script>
+    <script src="../../../static/js/ping.js"></script>
+</body>
+</html>

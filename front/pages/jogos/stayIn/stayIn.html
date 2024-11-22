@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stay in</title>
+  <link rel="stylesheet" href="/static/css/stayIn_style.css">
+      <link rel="shortcut icon" type="image/png" href="../static/resources/images/elementos_graficos/sirkass.png">
+
+</head>
+<body>
+<div class="game-container">
+  <div class="score" id="score">Pontuação: 0</div>
+  <div class="rotating-background"></div>
+  <div class="safe-zone"></div>
+  <div class="player-ball"></div> <!-- Bolinha controlada -->
+</div>
+<div class="timer-bar" id="time-bar">
+  <div id="time-fill" style="width: 100%;"></div> <!-- Adicionado para barra interna de preenchimento -->
+</div>
+
+<!-- Modal de Derrota -->
+<div id="game-over-modal" style="display: none;">
+  <div class="modal-content">
+    <h2>Você perdeu!</h2>
+    <p id="final-score">Pontuação Final: 0</p>
+    <button id="restart-button" onclick="restartGame()">Reiniciar Jogo</button>
+    <button id="home-button" onclick="goToHome()">Ir para a Página Inicial</button>
+  </div>
+</div>
+
+<script src="/static/js/stayIn_script.js"></script>
+</body>
+</html>

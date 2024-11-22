@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Crazy Rails</title>
+    <link rel="stylesheet" href="/static/css/crazy.css">
+        <link rel="shortcut icon" type="image/png" href="/static/resources/images/elementos_graficos/sirkass.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=undo" />
+</head>
+<body>
+    <nav>
+            <button onclick="window.location.href='/menu'"><span class="material-symbols-outlined">undo</span>
+            </button>
+        <h1>
+            Crazy Rails
+        </h1>
+    </nav>
+    <div class="infos">
+<!--    <div class="vidas" id="vidas">-->
+<!--        <div class="coracao" id="vida1"><img src="../../../static/resources/images/elementos_graficos/vida_cheia.png"></div>-->
+<!--        <div class="coracao" id="vida2"><img src="../../../static/resources/images/elementos_graficos/vida_cheia.png"></div>-->
+<!--        <div class="coracao" id="vida3"><img src="../../../static/resources/images/elementos_graficos/vida_cheia.png"></div>-->
+<!--    </div>-->
+        <div class="pontuacao" id="pontuacao">
+            <h2>R$$$ 0</h2>
+        </div>
+        </div>
+    <div id="gameArea" class="gameArea">
+        <div class="trilho" id="trilho1"></div>
+        <div class="trilho" id="trilho2">
+                <div class="trem" id="trem">
+
+            <div class="vagao"></div>
+                     <div class="cabine"></div>
+        </div>
+        </div>
+        <div class="trilho" id="trilho3"></div>
+    </div>
+    <div class="modal" id="modalStart">
+         <div class="modal-content">
+        <div class="content">
+        <img src="" alt="ziggy cartoon">
+        <div class="description">
+            <p>
+                Bem Vindo ao Crazy Rails! De volta ao passado você deve conduzir o trem Aurora pelos trilhos, colentado ouro e evitando os perigos! Você possui apenas 3 vidas!
+            </p>
+        </div>
+            </div>
+        <button id="playButton">
+            Jogar!
+        </button>
+             </div>
+    </div>
+        <audio id="meuAudio" loop>
+  <source src="../../../static/resources/Audios/trem.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("modalStart");
+    const playButton = document.getElementById("playButton");
+    const audio = document.getElementById("meuAudio");
+    const trilhos = document.querySelectorAll(".trilho");
+    const pontuacaoEl = document.querySelector("#pontuacao h2");
+    let pontuacao = 0;
+    let tempoGeracao = 2000; // Intervalo inicial para gerar ouro
+
+    modal.style.display = "flex";
+
+    playButton.addEventListener("click", function () {
+        modal.style.display = "none";
+        document.body.classList.toggle('andar');
+        audio.play();
+        trilhos.forEach(trilho => trilho.classList.add('mover'));
+    });
+
+    // Função para gerar o ouro
+    const trilhosIds = ["trilho1", "trilho2", "trilho3"];
+
+    function gerarOuro() {
+        const trilhoAleatorio = trilhosIds[Math.floor(Math.random() * trilhosIds.length)];
+        const trilho = document.getElementById(trilhoAleatorio);
+
+        const ouro = document.createElement("div");
+        ouro.classList.add("ouro");
+        trilho.appendChild(ouro);
+
+        // Detecção de colisão entre trem e ouro
+        function detectarColisao() {
+            const trem = trilho.querySelector(".trem"); // Presume-se que o trem esteja em algum dos trilhos
+            if (trem && ouro.getBoundingClientRect().left <= trem.getBoundingClientRect().right) {
+                pontuacao += 5;
+                pontuacaoEl.textContent = `R$$$ ${pontuacao}`;
+                ouro.remove();
+
+                // Aumenta a velocidade a cada 200 pontos
+                if (pontuacao % 200 === 0) {
+                    tempoGeracao = Math.max(500, tempoGeracao - 200); // Reduz o tempo até o mínimo de 500ms
+                    clearInterval(gerarOuroInterval); // Limpa o intervalo anterior
+                    gerarOuroInterval = setInterval(gerarOuro, tempoGeracao); // Define o novo intervalo
+                }
+            }
+        }
+
+        // Chama a detecção de colisão regularmente enquanto o ouro existe
+        const colisaoInterval = setInterval(() => {
+            if (document.body.contains(ouro)) {
+                detectarColisao();
+            } else {
+                clearInterval(colisaoInterval); // Para a detecção se o ouro for removido
+            }
+        }, 100);
+
+        // Remove o ouro após a animação
+        ouro.addEventListener("animationend", () => {
+            ouro.remove();
+        });
+    }
+
+    let gerarOuroInterval = setInterval(gerarOuro, tempoGeracao); // Define o intervalo inicial para gerar o ouro
+});
+  </script>
+<script src="/static/js/crazy.js"></script>
+</body>
+</html>

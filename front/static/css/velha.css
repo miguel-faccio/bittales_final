@@ -1,0 +1,85 @@
+body {
+    background-image: url('../resources/images/fundo_jogos/velha.jpg') ;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0; /* Remover margem padrão */
+    height: 100vh; /* Para garantir que o corpo ocupe toda a altura da tela */
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    background-color: rgba(206, 242, 180, 0.62); /* Cor de fundo do cabeçalho */
+    padding: 10px 0; /* Espaçamento interno do cabeçalho */
+    text-align: center; /* Centralizar o texto no cabeçalho */
+    border-bottom: 1px solid #333; /* Linha separadora abaixo do cabeçalho */
+    border: none;
+}
+
+.header-buttons {
+    margin-top: 10px;
+}
+
+.header-buttons .button {
+    margin: 0 10px; /* Espaço entre os botões */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #78BF33;
+    border: none;
+    border-radius: 5%;
+    color: white;
+    text-decoration: none;
+}
+
+.header-buttons .button:hover {
+    cursor: pointer;
+    background-color: #5f9826;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Para ocupar o espaço restante da tela */
+    text-align: center;
+}
+
+#turnIndicator {
+    background-color: #4CAF50; /* Fundo verde para melhor visibilidade */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.cell:hover {
+    background-color: #e0e0e0;
+}
+
+#message {
+    background-color: #4CAF50;
+    color: white;
+    margin: 15px;
+    font-size: 1.5rem;
+}

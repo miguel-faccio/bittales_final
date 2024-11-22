@@ -1,0 +1,54 @@
+.container-alerta {
+    display: none;
+    text-align: center;
+    background-color: #8c3807;
+    border: 5px solid #D9843B;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container-alerta img {
+    width: 100px;
+    height: auto;
+}
+
+.container-alerta-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-right: 2px solid #D9843B;
+    padding-right: 20px;
+    width: 100%;
+}
+
+.container-alerta p {
+    font-size: 18px;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.container-alerta h1 {
+    color: #79bf34;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Exibe a div quando a largura da tela for menor que 1024px */
+@media (max-width: 1024px) {
+    .container-alerta {
+        display: block;
+    }
+
+    /* Oculta o conteúdo principal do site */
+    body > *:not(.container-alerta) {
+        display: none;
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="/static/css/velha.css">
+    <link rel="stylesheet" href="/static/css/responsivo.css">
+    <link rel="shortcut icon" type="image/png" href="../static/resources/images/elementos_graficos/sirkass.png">
+
+</head>
+<body>
+    <nav>
+
+        <div class="header-buttons">
+            <button class="button" id="newGame">Novo Jogo</button>
+            <a class="button"  href="/menu">Menu</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="turnIndicator">Vez do jogador: X</div>
+        <div class="grid" id="grid">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <div id="message"></div>
+    </div>
+<div class="container-alerta">
+    <div class="container-alerta-content">
+        <img src="/static/resources/images/ziggy/cutie.png" alt="App logo">
+        <div>
+            <h1>Atenção</h1>
+            <p>Nosso site não possui suporte para mobile, por favor use a versão <span><a>Mobile</a></span>!</p>
+        </div>
+    </div>
+</div>
+      <audio id="meuAudio" loop>
+  <source src="../../../static/resources/Audios/velha.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<script>
+    const audio = document.getElementById('meuAudio');
+
+    // Tenta iniciar o áudio automaticamente
+    window.addEventListener('load', () => {
+        audio.play().catch(() => {
+            // Caso o autoplay seja bloqueado, exibe um aviso ou inicia após clique
+            console.log("Autoplay bloqueado; áudio será iniciado após interação.");
+        });
+    });
+
+    // Alternativa: inicia após um clique se o autoplay for bloqueado
+    document.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+        }
+    });
+</script>
+    <script src="static/js/velha.js"></script>
+</body>
+</html>

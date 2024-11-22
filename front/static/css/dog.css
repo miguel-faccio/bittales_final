@@ -1,0 +1,222 @@
+:root {
+  --primary-bg-color: #2A857E;
+  --button-bg-color: #F58433;
+  --button-hover-color: #ec731d;
+  --modal-bg-color: rgba(0, 0, 0, 0.8);
+  --modal-content-bg: #fefefe;
+  --obstacle-color: #8BC34A;
+  --score-bg-color: #F58433;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background: url('../../static/resources/images/fundo_jogos/fundo_dogg.jpg') repeat-x;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: 'Arial', sans-serif;
+}
+
+.ngc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+/* Navigation styles */
+nav {
+  width: 100%;
+  background-color: var(--primary-bg-color);
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav button {
+  margin: 0 15px;
+  padding: 10px 30px;
+  background-color: var(--button-bg-color);
+  border-radius: 8px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav button:hover {
+  background-color: var(--button-hover-color);
+}
+
+/* Game Area styles */
+#gameArea {
+  position: relative;
+  top: 250px;
+  width: 80%;
+  height: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  background-image: url("../resources/images/elementos_graficos/backdog.jpg");
+
+  animation: moveBackground 20s linear infinite;
+}
+
+@keyframes moveBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -2000px 0;
+  }
+}
+
+#character {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-image: url("../resources/images/elementos_graficos/sprite1.png");
+  bottom: 0;
+  left: 50px;
+  background-size: contain;
+  animation: animateCharacter 0.6s steps(3) infinite;
+}
+
+@keyframes animateCharacter {
+  0% { background-image: url("../resources/images/elementos_graficos/sprite1.png"); }
+  33% { background-image: url("../resources/images/elementos_graficos/sprite2.png"); }
+  66% { background-image: url("../resources/images/elementos_graficos/sprite3.png"); }
+  100% { background-image: url("../resources/images/elementos_graficos/sprite1.png"); }
+}
+
+#score {
+  position: fixed;
+  top: 130px;
+  right: 50px;
+  font-size: 24px;
+  background-color: var(--score-bg-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--modal-bg-color);
+  padding: 20px;
+}
+
+.modal-content {
+  background-color: var(--modal-content-bg);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Estilo para a imagem dentro do modal */
+.modal-content img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+#restartGameButton {
+  padding: 10px 20px;
+  background-color: #ffa340;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#restartGameButton:hover {
+  background-color: #2A857E;
+  transform: translateY(-2px);
+}
+
+#restartGameButton:active {
+  transform: translateY(0);
+}
+
+.obstacle {
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  background-image: url("../resources/images/elementos_graficos/obstaculo.png");
+  background-size: cover;
+  border-radius: 5px;
+  animation: moveObstacle 2s linear infinite;
+}
+
+@keyframes moveObstacle {
+  0% { left: 100%; }
+  100% { left: -50px; }
+}

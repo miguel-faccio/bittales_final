@@ -1,0 +1,250 @@
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+@font-face {
+    font-family: cartoon;
+    src: url("../resources/fontes/albertson/Albertson.otf");
+}
+
+body {
+    background-image: url("../resources/images/fundo_jogos/crazy.jpg");
+    background-size: cover;
+    background-repeat: repeat-x;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    position: relative; /* Adicionado para garantir que a animação funcione corretamente */
+
+
+}
+
+body.andar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../resources/images/fundo_jogos/crazy.jpg");
+    background-size: cover;
+    background-repeat: repeat-x;
+
+    animation: moveBackground 5s linear infinite;
+    z-index: -1; /* Coloca a camada abaixo do conteúdo */
+    filter: grayscale(100%);
+}
+
+@keyframes moveBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -1536px 0;
+  }
+}
+h1 {
+    font-family: cartoon !important;
+    font-size: 40px;
+    color: #ffd200;
+    filter: grayscale(100%);
+}
+
+nav {
+    display: flex;
+    background-color: rgba(95, 152, 38, 0.75);
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    filter: grayscale(100%);
+}
+nav button{
+    border: none;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    left: 0;
+    background: none;
+    color: #ffd200;
+    cursor: pointer;
+    transition: transform 0.5s; /* Animação ao passar o mouse */
+}
+nav button:hover{
+    transform: scale(1.2); /* Aumenta o botão quando passa o mouse */
+}
+.infos{
+    height: 50px;
+    width: 100%;
+    margin-top:10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+.pontuacao{
+    margin-right: 10px;
+    background-color: rgba(255, 255, 255, 0.66);
+    color: #ffd200;
+    height: 30px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+.vidas{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 200px;
+
+}
+.coracao img{
+    width: 60px;
+    height: 50px;
+}
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    width: 600px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    position: fixed;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.content img {
+    width: 50%;
+    height: 100%;
+}
+
+.modal button {
+    width: 40%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.5s; /* Animação ao passar o mouse */
+}
+
+.modal button:hover {
+    transform: scale(1.2); /* Aumenta o botão quando passa o mouse */
+}
+.gameArea{
+    height: 300px;
+    width: 100%;
+    /*border: #000 solid 2px;*/
+    position: fixed;
+    bottom: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.trilho{
+    background-image: url("../resources/images/elementos_graficos/trilho.png");
+    width: 100%;
+    height: 25%;
+    background-size: contain;
+    background-repeat: repeat-x;
+    display: flex;
+    align-items: center;
+
+    /* Coloca a camada abaixo do conteúdo */
+}
+@keyframes moveTrilho {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -1536px 0;
+    }
+}
+
+.trilho.mover {
+    animation: moveTrilho 5s linear infinite;
+     z-index: -1;
+}
+.trem {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 10%; /* Ajuste a posição inicial no trilho */
+    width: 200px;
+    height: 60px;
+
+}
+
+.cabine {
+    width: 110px;
+    height: 100%;
+    background-image: url("../resources/images/elementos_graficos/trem.png"); /* Ajuste com a imagem da cabine */
+    background-size: cover;
+    margin-left: 3px;
+    animation: pulse 0.7s infinite;
+     filter: grayscale(100%);
+}
+
+.vagao {
+    width: 100px;
+    height: 100%;
+    background-image: url("../resources/images/elementos_graficos/vagao.png"); /* Ajuste com a imagem do vagão */
+    background-size: cover;
+    animation: pulse 0.8s infinite;
+     filter: grayscale(100%);
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.07); }
+    75% { transform: scale(1.05);}
+}
+.ouro {
+    position: absolute;
+    width: 60px;
+    height: 100px;
+    right: 0; /* Começa no lado direito da tela */
+    background-image: url("../resources/images/elementos_graficos/ouropepita.png"); /* Ajuste com a imagem do ouro */
+    background-size: cover;
+    animation: moverParaEsquerda 5s linear infinite; /* Ajuste o tempo para controlar a velocidade */
+
+}
+
+@keyframes moverParaEsquerda {
+    0% {
+        right: 0;
+    }
+    100% {
+        right: 100%;
+    }
+}

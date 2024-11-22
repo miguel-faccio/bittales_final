@@ -1,0 +1,32 @@
+/* Estilização do Footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(45deg, #8c3807f1, #ee8e56ee, #8c3807f1);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+
+    color: #fff; /* Cor do texto */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+    position: relative; /* Pode ser fixed se desejar */
+    bottom: 0;
+    width: 100%;
+}
+
+/* Links do Footer */
+.footer p {
+    margin: 5px 0; /* Espaçamento entre os parágrafos */
+    font-size: 14px;
+}
+
+/* Links do Footer */
+.footer a {
+    color: #fff; /* Cor do link */
+    text-decoration: none; /* Remove sublinhado */
+    transition: color 0.3s ease; /* Transição suave */
+}
+
+.footer a:hover {
+    color: #f39c12; /* Cor de hover do link */
+}

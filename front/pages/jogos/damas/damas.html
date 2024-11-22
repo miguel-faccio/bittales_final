@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/static/css/damas.css">
+  <link rel="shortcut icon" type="image/png" href="../static/resources/images/elementos_graficos/sirkass.png">
+</head>
+<body>
+
+  <!-- Modal de Regras -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2>Regras do Jogo </h2>
+      <p>Bem-vindo ao ZodiacLady! Cada peça representa um signo do zodíaco e você deve mover estrategicamente para capturar todas as peças do adversário.</p>
+      <button id="playButton">Jogar</button>
+    </div>
+  </div>
+  <nav>
+    <div id="turn" class="turn-indicator" style="color: #00ff99;"></div>
+  </nav>
+
+
+<div id="tabuleiro" class="tabuleiro tabuleiro-container">
+  <script>
+    const signs = ["aries", "taurus", "gemini", "cancer", "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn", "aquarius", "pisces"];
+    let boardHtml = '';
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 8; col++) {
+        const cellClass = (row + col) % 2 === 0 ? 'white-cell' : 'black-cell';
+        let piece = '';
+        if (row < 3 && cellClass === 'black-cell') {
+          // Peça dourada com signo específico
+          piece = `<div class="piece silver ${signs[(row * 4 + col) % 12]}-silver"></div>`;
+        } else if (row > 4 && cellClass === 'black-cell') {
+          // Peça prateada com signo específico
+          piece = `<div class="piece gold ${signs[(row * 4 + col) % 12]}-gold"></div>`;
+        }
+        boardHtml += `<div class="${cellClass}">${piece}</div>`;
+      }
+    }
+    document.getElementById("tabuleiro").innerHTML = boardHtml;
+  </script>
+</div>
+
+  <audio id="background-audio" loop>
+    <source src="../../../static/resources/Audios/zodiaclady.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    // script.js
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("modal");
+  const playButton = document.getElementById("playButton");
+  const audio = document.getElementById("background-audio");
+
+  // Exibir o modal
+  modal.style.display = "flex";
+
+  // Iniciar jogo após fechar o modal
+  playButton.addEventListener("click", function () {
+    modal.style.display = "none";
+    audio.play();  // Iniciar áudio em loop
+  });
+});
+
+  </script>
+</body>
+</html>
