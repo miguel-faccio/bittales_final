@@ -16,11 +16,11 @@
 .amor {
     background-image: url('../resources/images/capas_jogos/test_love.jpg');
 }
-.spaceB {
-    background-image: url('../resources/images/floresta/interior_nut.jpg');
+.waterB {
+    background-image: url('../resources/images/floresta/florestwater.jpg');
 }
-.space{
-    background-image: url('../resources/images/capas_jogos/capanut.jpg');
+.water{
+    background-image: url('../resources/images/capas_jogos/watercap.jpg');
 }
 .sudoku{
     background-image: url('../resources/images/capas_jogos/2.jpg');

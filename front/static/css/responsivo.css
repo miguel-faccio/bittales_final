@@ -42,7 +42,7 @@
 }
 
 /* Exibe a div quando a largura da tela for menor que 1024px */
-@media (max-width: 1024px) {
+@media (max-width: 1528px) {
     .container-alerta {
         display: block;
     }

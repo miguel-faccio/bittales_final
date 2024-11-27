@@ -27,7 +27,28 @@
     <button id="home-button" onclick="goToHome()">Ir para a Página Inicial</button>
   </div>
 </div>
-
+<audio id="meuAudio" loop>
+  <source src="../../../static/resources/Audios/pandemonium.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
 <script src="/static/js/stayIn_script.js"></script>
+<script>
+      const audio = document.getElementById('meuAudio');
+
+    // Tenta iniciar o áudio automaticamente
+    window.addEventListener('load', () => {
+        audio.play().catch(() => {
+            // Caso o autoplay seja bloqueado, exibe um aviso ou inicia após clique
+            console.log("Autoplay bloqueado; áudio será iniciado após interação.");
+        });
+    });
+
+    // Alternativa: inicia após um clique se o autoplay for bloqueado
+    document.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+        }
+    });
+</script>
 </body>
 </html>

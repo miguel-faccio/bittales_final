@@ -567,9 +567,9 @@ if (numOfKings == 1) {
     setTimeout(() => {
         // console.log(`${toggle}`) 
         if (tog % 2 == 0) {
-            resultMessage.innerText = 'White Wins !!';
+            resultMessage.innerText = 'Branco ganhou!!';
         } else {
-            resultMessage.innerText = 'Black Wins !!';
+            resultMessage.innerText = 'Vermelho ganhou !!';
         }
         modal.style.display = "block"; // Show the modal
     }, 100);

@@ -10,10 +10,12 @@ body {
     overflow-x: hidden;
     align-items: center;
     background-image: url("../resources/images/fundo_jogos/fundo2xadrez.jpg");
+    background-position: center;
+    background-size: cover;
 }
 nav {
     position: fixed;
-    top: 20px;
+
     width: 100%;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.8);
@@ -21,7 +23,7 @@ nav {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     z-index: 10;
     border-radius: 10px;
-    margin-bottom: 30px;
+
 }
 
 nav a {
@@ -53,7 +55,7 @@ ul {
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5); 
     margin: 20px;
     position: relative;
-    top: 50px;
+    top: 20px;
 
 }
 
@@ -154,4 +156,24 @@ li {
     .allimg {
         width: 7vw;
     }
+}
+div.resultModal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.modal-content button{
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    color: #6c1414;
+    margin: 10px;
 }
