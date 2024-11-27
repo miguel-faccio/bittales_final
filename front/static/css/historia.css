@@ -286,7 +286,11 @@ section#surgiu{
   flex-shrink: 0;  
   display: flex;
   flex-direction: row;
-}  
+  transition: transform 0.3s ease;
+}
+.card:hover{
+     transform: scale(1.2);
+}
 .card img{
 width: 220px;
 height: 391px!important;

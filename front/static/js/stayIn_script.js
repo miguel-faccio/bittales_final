@@ -175,7 +175,7 @@ function updateTimerAndScore() {
             insideSafeZone = true;
             timeLeft = initialTime;
         }
-        score += 1;
+        score += 5;
         document.getElementById('score').innerText = `Pontuação: ${score}`;
     } else {
         insideSafeZone = false;
@@ -210,3 +210,7 @@ startMoveInterval();
 function restartGame() {
     location.reload();
 }
+
+function goToHome() {
+    window.location.href="/menu";
+  }
