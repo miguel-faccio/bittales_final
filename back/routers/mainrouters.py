@@ -142,9 +142,9 @@ async def read_menu(request: Request):  # Redireciona para a página inicial
 async def read_menu(request: Request):  # Redireciona para a página inicial
     return templates.TemplateResponse("jogos/love/love.html", {"request": request, "title": "Love Test!"})
 
-@router.get("/nutblaster", response_class=HTMLResponse)
+@router.get("/water", response_class=HTMLResponse)
 async def read_menu(request: Request):  # Redireciona para a página inicial
-    return templates.TemplateResponse("jogos/nutblaster/nutblaster.html", {"request": request, "title": "Nut Blaster!"})
+    return templates.TemplateResponse("jogos/water/water.html", {"request": request, "title": "Catch Water"})
 
 @router.get("/pingpong", response_class=HTMLResponse)
 async def read_menu(request: Request):  # Redireciona para a página inicial

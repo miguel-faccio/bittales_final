@@ -1,15 +1,15 @@
 from peewee import SqliteDatabase, MySQLDatabase
 
-# DATABASE_PATH = 'database.bd'
-# database = SqliteDatabase('bittalesv1.db')
+DATABASE_PATH = 'database.bd'
+database = SqliteDatabase('bittalesv1.db')
 
-database = MySQLDatabase(
-    database='bit-tales',
-    user='root',
-    password='',
-    host='localhost',
-    port=3306,
-)
+# database = MySQLDatabase(
+    # database='bit-tales',
+    # user='root',
+    # password='',
+    # host='localhost',
+    # port=3306,
+# )
 
 def startup_db():
     database.connect()

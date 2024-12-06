@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Verde Vale</title>
+    <link rel="stylesheet" href="/static/css/water.css">
+    <link rel="stylesheet" href="/static/css/responsivo.css">
+    <link rel="shortcut icon" type="image/png" href="../static/resources/images/elementos_graficos/sirkass.png">
+</head>
+<body>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>Bem-vindo ao CatchWater!</h2>
+            <p><strong>Regras:</strong></p>
+            <ul>
+                <li>Use as setas para mover o esquilo.</li>
+                <li>Colete as garrafas de água para ganhar pontos.</li>
+                <li>Evite as árvores, elas te eliminam!</li>
+            </ul>
+            <button id="start-button">Iniciar Jogo</button>
+            <button id="back-button">Voltar</button>
+        </div>
+    </div>
+    <audio id="background-music" src="../../../static/resources/Audio/water.mp3" loop></audio>
+
+    <div id="score" style="display: none;">Pontuação: <span id="score-value">0</span> | Tempo: <span id="time-value">60</span>s</div>
+    <div id="game-container" style="display: none;">
+        <canvas id="game-canvas" width="800" height="500"></canvas>
+    </div>
+    <script src="../../../static/js/water.js"></script>
+</body>
+</html>

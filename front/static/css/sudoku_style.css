@@ -225,14 +225,18 @@ button:hover {
 /* Estilo da navbar */
 .navbar {
     display: flex;
+    text-decoration: none !important;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 5%;
     background: linear-gradient(90deg, #7a436ed5, rgba(196, 125, 174, 0.8), rgba(110, 73, 95, 0.8));
     background-size: 200% 200%;
     animation: gradient-animation 5s ease infinite;
 }
-
+.navbar a{
+    text-decoration: none;
+    color: #fff;
+}
 .nav-btns {
     display: flex;
     justify-content: center;

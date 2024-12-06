@@ -1,4 +1,7 @@
-
+@font-face {
+    font-family: 'fairy';
+    src: url('../resources/fontes/fairydustb/FairyDustB.ttf');
+}
 .carousel {
     position: relative;
     width: 80%;
@@ -190,11 +193,18 @@ aside ul li {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+aside ul li span{
+    font-family: fairy!important;
+    color: #000;
+}
 
 aside ul li:hover {
     background-color: #f0f0f0;
 }
-
+aside ul li img{
+    width: 200px!important;
+    height: 100px!important;
+}
 /* Responsividade */
 @media (max-width: 768px) {
     .modal-content {
